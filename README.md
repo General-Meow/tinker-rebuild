@@ -19,3 +19,10 @@ docker run -d \
      -v /media/stick:/share/stick \
      --name samba dastrasmue/rpi-samba:latest \
      -s "fileserver:/share/stick:rw:"
+
+### dyn
+docker run -d --name dynu.dns --restart=always -v /home/paul/work/docker/docker-mydyndns/files/config:/etc/ddclient generalmeow/mydyndns:1.0-arm
+
+### deluge
+docker run -d -p 8112:8112 --name deluge -v /media/stick/usbstick/deluge/root/deluge generalmeow/deluge:1.1-arm
+
