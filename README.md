@@ -26,6 +26,9 @@ docker run -d --name dynu.dns --restart=always -v /home/paul/work/docker/docker-
 ### deluge
 docker run -d -p 8112:8112 --name deluge -v /media/stick/usbstick/deluge/root/deluge generalmeow/deluge:1.1-arm
 
+### nexus 
+docker run -d --name nexus -p 8081:8081 -v /home/paul/work/sonatype-work:/home/nexus/sonatype-work generalmeow/nexus:1-arm
+
 ### move storage of docker to different directory
 ```
 mkdir work/docker_storage
