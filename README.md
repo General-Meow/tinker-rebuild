@@ -26,3 +26,19 @@ docker run -d --name dynu.dns --restart=always -v /home/paul/work/docker/docker-
 ### deluge
 docker run -d -p 8112:8112 --name deluge -v /media/stick/usbstick/deluge/root/deluge generalmeow/deluge:1.1-arm
 
+### move storage of docker to different directory
+```
+mkdir work/docker_storage
+cd docker_storage
+sudo chown -R root:root docker_storage
+sudo chmod 701 docker_storage
+#stop current containers
+docker stop $(docker ps -q)
+#stop docker daemon
+sudo systemctl stop docker
+sudo cp -R /var/lib/docker/ ./docker_storage
+cd /var/lib
+sudo rm -rf docker
+sudo ln -s ~/work/docker_storage docker
+sudo service docker start
+```
