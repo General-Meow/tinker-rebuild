@@ -45,3 +45,7 @@ sudo rm -rf docker
 sudo ln -s ~/work/docker_storage docker
 sudo service docker start
 ```
+
+### this is really for nuc & docker registry
+docker run -d -p 5000:5000 --restart=always --name registry -v /home/paul/work/registry-repo:/var/lib/registry registry:2
+docker run -d -e ENV_DOCKER_REGISTRY_HOST=localhost -e ENV_DOCKER_REGISTRY_PORT=5000 -p 8082:80 konradkleine/docker-registry-frontend:v2
