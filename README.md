@@ -7,6 +7,14 @@ docker run -p 53:53 -p 53:53/udp --name mybind9 -d --restart=unless-stopped gene
 ### website
 docker run -d -p 80:80 --restart=always --name website -v /media/stick/tosh/work/website/main:/usr/share/nginx/html:ro arm32v7/nginx
 
+### fstab
+#128gb drive
+UUID=0061-F3CD /media/stick/usbdrive vfat rw,nosuid,nodev,relatime,uid=1000,gid=1000,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,showexec,utf8,flush,errors=remount-ro,uhelper=udisks2 0 1
+#kingmax 32gb
+UUID=1e6a9eec-7eaf-49ef-9bbf-b65fb0883ccb /media/stick/usbstick ext4 rw,nosuid,nodev,relatime,data=ordered,uhelper=udisks2 0 1
+#toshiba
+UUID=009e85ae-5699-4b7b-aefc-e5ba8e6fe3af /media/stick/tosh ext4 defaults,noatime,nodiratime,user,exec,errors=remount-ro 0 1
+
 ### samba
 docker run -d \
      -p 137:137/udp \
